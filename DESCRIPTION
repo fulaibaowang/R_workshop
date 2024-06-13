@@ -1,4 +1,4 @@
-Package: R_workshop
+Package: ISMB.OSCA
 Title: Orchestrating Large-Scale Single-Cell Analysis with Bioconductor
 Version: 0.99.13
 Authors@R: 
@@ -53,7 +53,7 @@ Remotes:
     lgeistlinger/SeuratData,
     stemangiola/CuratedAtlasQueryR
 URL:
-    https://fulaibaowang.github.io/R_workshop/,
+    https://bioconductor.github.io/ISMB.OSCA/,
     ghcr.io/bioconductor/ismb.osca
 BugReports: https://github.com/Bioconductor/ISMB.OSCA/issues/new/choose
 VignetteBuilder: knitr
