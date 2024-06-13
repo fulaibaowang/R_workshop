@@ -1,0 +1,10 @@
+pandoc: '3.2'
+pkgdown: 2.0.9
+pkgdown_sha: ~
+articles:
+  intro_bioc_sce: intro_bioc_sce.html
+last_built: 2024-06-13T21:43Z
+urls:
+  reference: https://bioconductor.github.io/ISMB.OSCA/reference
+  article: https://bioconductor.github.io/ISMB.OSCA/articles
+
