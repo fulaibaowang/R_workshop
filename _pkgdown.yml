@@ -5,12 +5,15 @@ template:
     bootswatch: flatly
     #ganalytics: UA-99999999-9
 
-home:
-  title: "R_Workshop"
-  type: inverse
-
-
 navbar:
+  title: ~
+  type: default
+  left:
+    - text: Vignettes
+      menu:
+      - text: Introduction to Bioconductor
+        href: articles/intro_bioc_sce.html
+        
   right:
    - icon: fa-github
      href: https://github.com/fulaibaowang/R_workshop
