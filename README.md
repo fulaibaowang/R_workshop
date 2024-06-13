@@ -1,52 +1,98 @@
-# BuildABiocWorkshop
+# ISMB 2023: Orchestrating Large-Scale Single-Cell Analysis with Bioconductor
 
-This package is a template for building a Bioconductor workshop. The package
-includes Github actions to:
+[Tutorial homepage](https://bioconductor.github.io/ISMB.OSCA/)
 
-1. Set up bioconductor/bioconductor_docker:devel on Github resources
-2. Install package dependencies for your package (based on the `DESCRIPTION` file)
-3. Run `rcmdcheck::rcmdcheck`
-4. Build a pkgdown website and push it to github pages
-5. Build a docker image with the installed package and dependencies and deploy to [the Github Container Repository](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pulling-container-images) at the name `ghcr.io/gihub_user/repo_name`, all lowercase. 
+## Speakers
 
-## Responsibilities
+* Dario Righelli, University of Padova, Italy
+* Marcel Ramos, CUNY Graduate School of Public Health and Health Policy; and Roswell Park Comprehensive Cancer Center, United States
+* Ludwig Geistlinger, Harvard Medical School, United States
+* Davide Risso, University of Padova, Italy
 
-Package authors are primarily responsible for:
+## Description
 
-1. Creating a landing site of their choosing for their workshops (a website). This website should be listed in the `DESCRIPTION` file as the `URL`.
-2. Creating a docker image that will contain workshop materials and the installed packages necessary to run those materials. The name of the resulting docker image, including "tag" if desired, should be listed in a non-standard tag, `DockerImage:` in the `DESCRIPTION` file. 
+In the last few years, the profiling of a large number of genome-wide features
+in individual cells has become routine. Consequently, a plethora of tools for
+the analysis of single-cell data has been developed, making it hard to understand
+the critical steps in the analysis workflow and the best methods for each objective
+of one’s study.
 
-Both of those tasks can be accomplished using the Github actions included in this template package. The vignette accompanying this package describes how to accomplish both of these tasks.
+This tutorial aims to provide a solid foundation in using Bioconductor tools
+for single-cell RNA-seq analysis by walking through various steps of typical
+workflows using example datasets.
 
-## Details
+This tutorial uses as a "text-book" the online book "Orchestrating Single-Cell
+Analysis with Bioconductor"
+([OSCA](https://bioconductor.org/books/release/OSCA/)), 
+started in 2018 and continuously updated by many contributors from the Bioconductor
+community. Like the book, this tutorial strives to be of interest to the
+experimental biologists wanting to analyze their data and to the bioinformaticians
+approaching single-cell data.
 
-For detailed instructions, see the `How to build a workshop` article/vignette.
+## Learning objectives
 
-## Results of successful deployment
+Attendees will learn how to analyze multi-condition single-cell RNA-seq from
+raw data to statistical analyses and result interpretation. Students will learn
+where the critical steps and methods choices are and will be able to leverage
+large-data resources to analyze datasets comprising millions of cells.
 
-- A working docker image that contains the installed package and dependencies.
-- An up-to-date `pkgdown` website at https://YOURUSERNAME.github.io/YOURREPOSITORYNAME/
-- Docker image will be tagged with `latest`, `sha-XXXXXX` where `XXXXXX` is the hash of the current `master` commit, and `master`. 
+In particular, participants will learn:
 
-## To use the resulting image:
+* How to access publicly available data, such as those from the Human Cell Atlas.
+* How to perform data exploration, normalization, and dimensionality reduction.
+* How to identify cell types/states and marker genes.
+* How to correct for batch effects and integrate multiple samples.
+* How to perform differential expression and differential abundance analysis between conditions.
+* How to work with large out-of-memory datasets.
 
-```sh
-docker run -e PASSWORD=<choose_a_password_for_rstudio> -p 8787:8787 YOURDOCKERIMAGENAME
+## Time outline
+
+| Activity                     | Time |
+|------------------------------|------|
+| Introduction and Setup                                          | 9:00-9:30    |
+| Introduction to Bioconductor and the SingleCellExperiment class | 9:30-10:00   |
+| Exploratory Data Analysis and Quality Control (EDA/QC)          | 10:00-10:45  |
+| Coffee break                                                    | 10:45-11:00  |
+| Clustering and cell type annotation                             | 11:00-12:00  |
+| Multi-sample analyses                                           | 12:00-13:00  |
+| Lunch break                                                     | 13:00-14:00  |
+| Working with large data                                         | 14:00-15:00  |
+| Accessing the Human Cell Atlas (HCA) Data from R/Bioconductor   | 15:00-16:00  |
+| Coffee break                                                    | 16:00-16:15  |
+| Case study: from data import to DE and DA                       | 16:15-17:00  |
+| Case study: discussion                                          | 17:00-18:00  |
+
+## Docker container
+
+To run this tutorial in a
+[Docker container](ghcr.io/bioconductor/ismb.osca:latest),
+pull the Docker image via
+
 ```
-Once running, navigate to http://localhost:8787/ and then login with `rstudio`:`yourchosenpassword`. 
+docker pull ghcr.io/bioconductor/ismb.osca:latest
+``` 
 
-To try with **this** repository docker image:
+and then run the image via
 
-```sh
-docker run -e PASSWORD=abc -p 8787:8787 ghcr.io/bioconductor/buildabiocworkshop
+```
+docker run -e PASSWORD=bioc -p 8787:8787 ghcr.io/bioconductor/ismb.osca
 ```
 
-*NOTE*: Running docker that uses the password in plain text like above exposes the password to others 
-in a multi-user system (like a shared workstation or compute node). In practice, consider using an environment 
-variable instead of plain text to pass along passwords and other secrets in docker command lines. 
+Once running, navigate to http://localhost:8787/ in your browser and login with
+username `rstudio` and password `bioc`.
 
+## Local installation
 
-## Whatcha get
+This tutorial can be installed like an ordinary R package via:
 
-- https://bioconductor.github.io/BuildABiocWorkshop
-- A Docker image that you can run locally, in the cloud, or (usually) even as a singularity container on HPC systems. 
+```
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+if (!require("remotes", quietly = TRUE))
+    install.packages("remotes")
+
+BiocManager::install("Bioconductor/ISMB.OSCA",
+                     dependencies = TRUE,
+                     build_vignettes = TRUE)
+```
