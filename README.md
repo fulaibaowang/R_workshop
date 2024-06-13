@@ -1,4 +1,4 @@
-# ISMB 2023: Orchestrating Large-Scale Single-Cell Analysis with 
+# ISMB 2023: Orchestrating Large-Scale Single-Cell Analysis with Bioconductor
 
 [Tutorial homepage](https://bioconductor.github.io/ISMB.OSCA/)
 
