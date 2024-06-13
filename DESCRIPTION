@@ -19,29 +19,7 @@ RoxygenNote: 7.1.0
 Depends: 
     R (>= 4.3.0)
 Imports:
-    AUCell,
-    CuratedAtlasQueryR,
-    DropletUtils,
-    EnsDb.Mmusculus.v79,
-    MouseGastrulationData,
-    Seurat,
-    SeuratData,
-    SingleR,
-    TENxBrainData,
-    batchelor,
-    scater,
-    scran,
-    scuttle,
-    DropletUtils,
-    EnsDb.Mmusculus.v79,
-    batchelor,
-    igraph,
-    gridExtra,
-    pheatmap,
-    scDblFinder,
-    zellkonverter,
-    ggplot2,
-    edgeR
+
 Suggests: 
     BiocStyle,
     dplyr,
