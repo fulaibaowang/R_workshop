@@ -6,7 +6,7 @@ template:
     #ganalytics: UA-99999999-9
 
 home:
-  title: "BuildABiocWorkshop"
+  title: "R_Workshop"
   type: inverse
 
 
