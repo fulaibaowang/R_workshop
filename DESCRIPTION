@@ -28,11 +28,10 @@ Suggests:
     stringr,
     pkgdown
 Remotes:
-    lgeistlinger/SeuratData,
-    stemangiola/CuratedAtlasQueryR
+
+
 URL:
-    https://bioconductor.github.io/ISMB.OSCA/,
-    ghcr.io/bioconductor/ismb.osca
-BugReports: https://github.com/Bioconductor/ISMB.OSCA/issues/new/choose
+    https://github.com/fulaibaowang/R_workshop/,
+BugReports: https://github.com/Bioconductor/ISMB.OSCA/https://github.com/fulaibaowang/R_workshop/issues/new/choose
 VignetteBuilder: knitr
 DockerImage: ghcr.io/bioconductor/ismb.osca:latest
