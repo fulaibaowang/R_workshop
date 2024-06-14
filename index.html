@@ -4,14 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My HTML Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            margin: 1em 0;
+        }
+        nav button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            cursor: pointer;
+        }
+        nav button:hover {
+            background-color: #555;
+        }
+        iframe {
+            border: none;
+            width: 80%;
+            height: 80vh;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My HTML Pages</h1>
-    <ul>
-        <li><a href="R_workshop.html">Day 1</a></li>
-        <li><a href="R_workshop2.html">Day 2</a></li>
-        <li><a href="deseq2_tutorial.html">Day 3</a></li>
-        <!-- Add more links as needed -->
-    </ul>
+    <header>
+        <h1>Welcome to My HTML Pages</h1>
+    </header>
+    <nav>
+        <button onclick="navigateTo('R_workshop.html')">Day 1</button>
+        <button onclick="navigateTo('R_workshop2.html')">Day 2</button>
+        <button onclick="navigateTo('deseq2_tutorial.html')">Day 3</button>
+        <!-- Add more buttons as needed -->
+    </nav>
+    <iframe id="contentFrame" src="page1.html"></iframe>
+
+    <script>
+        function navigateTo(page) {
+            document.getElementById('contentFrame').src = page;
+        }
+    </script>
 </body>
 </html>
+
+
+
