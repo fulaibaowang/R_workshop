@@ -39,13 +39,24 @@
         nav button:hover {
             background-color: #555;
         }
-        iframe {
-            border: none;
-            width: 80%;
-            height: 80vh;
-            margin-top: 20px;
+        .content {
+            width: 100%;
+            padding: 20px;
         }
     </style>
+    <script>
+        function navigateTo(page) {
+            fetch(page)
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector('.content').innerHTML = html;
+                })
+                .catch(error => console.warn('Error loading page:', error));
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            navigateTo('R_workshop.html'); // Load default page on initial load
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -55,19 +66,12 @@
     </header>
     <nav>
         <button onclick="navigateTo('R_workshop.html')">Day 1</button>
-        <button onclick="navigateTo('R_workshop2.html')">Day 2</button>
+        <button onclick="navigateTo('R_workshop.2.html')">Day 2</button>
         <button onclick="navigateTo('deseq2_tutorial.html')">Day 3</button>
         <!-- Add more buttons as needed -->
     </nav>
-    <iframe id="contentFrame" src="R_workshop.html"></iframe>
-
-    <script>
-        function navigateTo(page) {
-            document.getElementById('contentFrame').src = page;
-        }
-    </script>
+    <div class="content">
+        <!-- Dynamic content will be loaded here -->
+    </div>
 </body>
 </html>
-
-
-
